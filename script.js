@@ -14,6 +14,8 @@ document.querySelector(".btn.check").addEventListener("click", function () {
     document.querySelector(".message").textContent = "No number 🚫";
     // If player wins
   } else if (guess === secretNumber) {
+     // I set score to not change because I don't want the score to be reducing         when the user keeps on pressing check
+    score = score;
     document.querySelector(".message").textContent = "Correct Guess 💫💫";
     document.querySelector("body").style.backgroundColor = "#60b347";
     document.querySelector(".number").style.width = "300px";
@@ -25,7 +27,7 @@ document.querySelector(".btn.check").addEventListener("click", function () {
   }
   //   Handles when the guess are wrong and too high and low and even handles when the user runs out of guesses
   else if (guess !== secretNumber) {
-    if (score > 1) {
+    if (score >= 1) {
       if (guess > secretNumber) {
         document.querySelector(".message").textContent =
           "Guess is too high 📈 ";
